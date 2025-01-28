@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>域名如何选择 - 我的个人博客</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">我的博客</div>
+            <ul class="nav-links">
+                <li><a href="/">首页</a></li>
+                <li><a href="/技术.html">技术</a></li>
+                <li><a href="/读书.html">读书</a></li>
+                <li><a href="/关于我.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="article-container">
+            <article class="article-main post">
+                <h1>域名如何选择</h1>
+                <div class="post-meta">
+                    <span class="date">2024-03-24</span>
+                    <span class="category">
+                        <a href="/技术.html">技术</a>
+                    </span>
+                    <span class="tags">
+                        <a href="#域名">域名</a><a href="#测试">测试</a>
+                    </span>
+                </div>
+                <div class="post-content size-medium">
+                    <h1 id="测试">测试</h1><h2 id="测试">测试</h2><p>测试hhhh</p>
+
+                </div>
+            </article>
+            <div class="article-toc">
+<div class="toc-title">目录</div>
+<ul class="toc-list">
+  <li><a href="#测试" class="h1">测试</a></li>
+<ul>
+  <li><a href="#测试" class="h2">测试</a></li>
+</ul>
+</ul>
+</div>
+        </div>
+        <!-- 添加字体大小控制面板 -->
+        <div class="font-size-control">
+            <div class="font-size-slider">
+                <span class="text-icon">A</span>
+                <input type="range" min="15" max="40" step="1" value="18" id="fontSizeSlider">
+                <span class="text-icon large">A</span>
+                <span class="current-size">18px</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 我的博客. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // 字体大小控制
+    function updateFontSize(size) {
+        const content = document.querySelector('.post-content');
+        content.style.fontSize = size + 'px';
+        document.querySelector('.current-size').textContent = size + 'px';
+        // 保存用户选择到 localStorage
+        localStorage.setItem('preferred-font-size', size);
+    }
+
+    // 页面加载时恢复用户的字体大小选择
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('fontSizeSlider');
+        const preferredSize = localStorage.getItem('preferred-font-size') || '18';
+        
+        if (preferredSize) {
+            slider.value = preferredSize;
+            updateFontSize(preferredSize);
+        }
+
+        // 监听滑动条变化
+        slider.addEventListener('input', function() {
+            updateFontSize(this.value);
+        });
+        
+        // 其他现有的 DOMContentLoaded 代码...
+        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        
+        // 目录滚动高亮和点击处理
+        tocLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // 获取header的高度
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    // 计算目标位置，考虑header的高度
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    // 平滑滚动
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 监听滚动，高亮当前位置的目录项
+        const observerOptions = {
+            root: null,
+            rootMargin: '-100px 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 移除所有激活状态
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    // 找到对应的目录项并添加激活状态
+                    const activeLink = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有标题元素
+        headings.forEach(heading => observer.observe(heading));
+    });
+    </script>
+</body>
+</html>

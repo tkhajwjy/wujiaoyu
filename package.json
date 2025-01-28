@@ -1,0 +1,36 @@
+{
+  "name": "wujiaoyu",
+  "version": "1.0.0",
+  "description": "个人博客",
+  "main": "index.js",
+  "scripts": {
+    "build:posts": "node scripts/build-posts.js",
+    "watch:posts": "nodemon --watch content --ext md --exec 'npm run build:posts'",
+    "dev:server": "browser-sync start --server --files '**/*.html, **/*.css, **/*.js'",
+    "dev": "concurrently \"npm run watch:posts\" \"npm run dev:server\"",
+    "build": "npm run build:posts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkhajwjy/wujiaoyu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkhajwjy/wujiaoyu/issues"
+  },
+  "homepage": "https://github.com/tkhajwjy/wujiaoyu#readme",
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.6"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.0.0",
+    "nodemon": "^3.1.9",
+    "vite": "^5.1.6"
+  }
+}

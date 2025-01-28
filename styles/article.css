@@ -1,0 +1,72 @@
+.font-size-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.font-size-slider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-icon {
+    font-weight: bold;
+    color: #666;
+}
+
+.text-icon.large {
+    font-size: 1.2em;
+}
+
+.current-size {
+    min-width: 45px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* 自定义滑动条样式 */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 120px;
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #357abd;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #4a90e2;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #357abd;
+}
+
+/* 移除旧的按钮样式 */ 

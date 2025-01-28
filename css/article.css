@@ -1,0 +1,126 @@
+/* 文章页面布局 */
+.article-container {
+    max-width: 800px;
+    margin: 60px auto 0;    /* 减少顶部间距 */
+    padding: 40px 20px;     /* 减少顶部内边距 */
+    background: #fff;       /* 文章内容区域背景色 */
+}
+
+/* 页面背景色 */
+body {
+    background: #f4f5f5;    /* 整体背景色偏灰 */
+}
+
+/* 文章内容 */
+.article-content {
+    line-height: 1.8;
+    color: #333;
+    padding: 40px;          /* 内容区域增加内边距 */
+    border-radius: 8px;     /* 圆角 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);  /* 轻微阴影 */
+}
+
+/* 文章标题 */
+.article-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-top: 10px;     /* 减少标题顶部间距 */
+}
+
+/* 文章标题样式 */
+.article-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* 文章元信息样式 */
+.article-meta {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.article-meta span {
+    margin: 0 10px;
+}
+
+/* 左侧目录 */
+.article-toc {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 20px;
+    border-right: 1px solid #eee;
+}
+
+.toc-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-list a {
+    display: block;
+    padding: 4px 0;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.toc-list a:hover {
+    color: #007bff;
+}
+
+/* 右侧边栏 */
+.article-sidebar {
+    position: sticky;
+    top: 80px;
+    padding: 20px;
+    border-left: 1px solid #eee;
+}
+
+.sidebar-widget {
+    margin-bottom: 2rem;
+}
+
+.sidebar-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* 标签云 */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-cloud a {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.tag-cloud a:hover {
+    background: #e5e5e5;
+    color: #333;
+} 

@@ -82,13 +82,50 @@ body {
 }
 
 .post-meta {
+    font-size: 1rem;
     color: #666;
-    font-size: 0.9rem;
-    margin: 1rem 0;
+    margin: 1rem 0 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .post-meta span {
     margin-right: 1rem;
+}
+
+.post-meta .tags a {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-right: 8px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.post-meta .tags a:hover {
+    background: #e5e5e5;
+    color: #333;
+}
+
+.post-meta .category a {
+    display: inline-block;
+    padding: 2px 12px;
+    margin-right: 12px;
+    background: #007bff;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.post-meta .category a:hover {
+    background: #0056b3;
 }
 
 .read-more {
@@ -103,4 +140,377 @@ body {
     padding: 2rem;
     background-color: #f8f9fa;
     margin-top: 4rem;
+}
+
+.error-message {
+    padding: 20px;
+    background: #fff3f3;
+    color: #d32f2f;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* 文章内容样式优化 */
+.post-content {
+    line-height: 1.8;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+/* 标题样式 */
+.post-content h1 {
+    font-size: 2em;
+    margin: 1.5em 0 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eaecef;
+}
+
+.post-content h2 {
+    font-size: 1.5em;
+    margin: 1.2em 0 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eaecef;
+}
+
+.post-content h3 {
+    font-size: 1.25em;
+    margin: 1em 0 0.6em;
+}
+
+/* 段落样式 */
+.post-content p {
+    margin: 1em 0;
+    line-height: 1.8;
+}
+
+/* 列表样式 */
+.post-content ul, 
+.post-content ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
+
+.post-content li {
+    margin: 0.5em 0;
+}
+
+/* 代码块样式 */
+.post-content pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 16px;
+    overflow: auto;
+    margin: 1em 0;
+}
+
+.post-content code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+}
+
+.post-content pre code {
+    background: none;
+    padding: 0;
+}
+
+/* 引用样式 */
+.post-content blockquote {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+    background-color: #f6f8fa;
+}
+
+/* 链接样式 */
+.post-content a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.post-content a:hover {
+    text-decoration: underline;
+}
+
+/* 图片样式 */
+.post-content img {
+    max-width: 100%;
+    margin: 1em 0;
+    border-radius: 4px;
+}
+
+/* 表格样式 */
+.post-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.post-content th,
+.post-content td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+.post-content tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+/* 文章整体布局 */
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* 代码高亮主题 */
+@import url('https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css');
+
+/* 文章列表标题 */
+.post h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+.post h2:hover {
+    color: #0366d6;
+}
+
+/* 文章详情页标题 */
+.post h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #2c3e50;
+    line-height: 1.3;
+}
+
+/* 文章元信息样式优化 */
+.post-meta {
+    font-size: 1rem;
+    color: #666;
+    margin: 1rem 0 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* 文章布局 - 添加侧边栏 */
+.article-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.article-main {
+    flex: 1;
+    min-width: 0;
+    margin-right: 280px; /* 为固定定位的目录留出空间 */
+}
+
+/* 固定目录在右侧 */
+.article-toc {
+    width: 280px;
+    position: fixed;
+    top: 100px;
+    right: calc((100% - 1200px) / 2); /* 居中对齐 */
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #fff; /* 添加背景色，防止文章内容透过 */
+}
+
+.toc-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eaecef;
+    color: #1a202c;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin: 0;
+    line-height: 1.6;
+    list-style-type: none;
+}
+
+.toc-list a {
+    text-decoration: none;
+    display: block;
+    padding: 0.4rem 0;
+    margin: 0.2rem 0;
+    transition: all 0.2s ease;
+}
+
+/* 一级标题样式 */
+.toc-list a.h1 {
+    color: #1a202c;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 0;
+}
+
+/* 二级标题样式 */
+.toc-list a.h2 {
+    color: #4a5568;
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+}
+
+/* 三级标题样式 */
+.toc-list a.h3 {
+    color: #718096;
+    font-size: 0.9rem;
+    padding-left: 2.4rem;
+}
+
+/* 悬停和激活状态 */
+.toc-list a:hover {
+    color: #3182ce;
+}
+
+.toc-list a.active {
+    color: #2b6cb0;
+    font-weight: 500;
+}
+
+/* 滚动条美化 */
+.article-toc::-webkit-scrollbar {
+    width: 4px;
+}
+
+.article-toc::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.article-toc::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
+}
+
+.article-toc::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* 适配移动端 */
+@media (max-width: 1200px) {
+    .article-toc {
+        right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-container {
+        flex-direction: column;
+    }
+    
+    .article-main {
+        margin-right: 0;
+    }
+    
+    .article-toc {
+        display: none;
+    }
+}
+
+/* 字体大小控制面板 */
+.font-size-control {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* 滑动条容器 */
+.font-size-slider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 字体图标 */
+.font-size-slider .text-icon {
+    color: #666;
+    font-size: 12px;
+}
+
+.font-size-slider .text-icon.large {
+    font-size: 16px;
+}
+
+/* 自定义滑动条样式 */
+.font-size-slider input[type="range"] {
+    -webkit-appearance: none;
+    width: 120px;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none;
+}
+
+/* 滑动条滑块 */
+.font-size-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.font-size-slider input[type="range"]::-webkit-slider-thumb:hover {
+    background: #0056b3;
+}
+
+/* 当前字号显示 */
+.current-size {
+    font-size: 12px;
+    color: #666;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* 文章内容字体大小类 */
+.post-content.size-small {
+    font-size: 14px;
+}
+
+.post-content.size-medium {
+    font-size: 16px;
+}
+
+.post-content.size-large {
+    font-size: 18px;
+}
+
+.post-content.size-xlarge {
+    font-size: 20px;
 } 
